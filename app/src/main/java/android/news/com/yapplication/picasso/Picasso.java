@@ -2,9 +2,7 @@ package android.news.com.yapplication.picasso;
 
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.widget.ImageView;
 
 /**
  * Created by yy10017 on 2016/8/23.
@@ -14,7 +12,6 @@ import android.widget.ImageView;
 public class Picasso {
 
     private Context mContext;
-    private int mReplaceViewId;
     private static Picasso singleInstance = null;
 
     private Picasso(Context context){
@@ -37,18 +34,6 @@ public class Picasso {
     }
 
     public RequestCreator load(@Nullable Uri uri) {
-        return new RequestCreator(this, uri, 0);
-    }
-
-    public void into(ImageView view){
-        //下载成功
-//        view.setImageResource();
-        //下载失败
-        view.setImageResource(mReplaceViewId);
-    }
-
-    public Picasso replaceImage(int replaceViewId) {
-        this.mReplaceViewId = replaceViewId;
-        return this;
+        return new RequestCreator(uri);
     }
 }

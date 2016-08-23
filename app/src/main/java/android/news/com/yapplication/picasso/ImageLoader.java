@@ -1,8 +1,9 @@
 package android.news.com.yapplication.picasso;
 
 import android.content.Context;
+import android.news.com.yapplication.R;
 import android.news.com.yapplication.base.HelloApplication;
-import android.news.com.yapplication.util.Uikit;
+import android.news.com.yapplication.net.Callback;
 import android.text.TextUtils;
 import android.widget.ImageView;
 
@@ -19,26 +20,29 @@ public class ImageLoader {
     private static ImageLoader instance = null;
 
     private ImageLoader(Context context){
-        this.mContext = mContext.getApplicationContext();
+        this.mContext = context.getApplicationContext();
     }
 
-    public synchronized ImageLoader getInstance(){
+    public static synchronized ImageLoader getInstance(){
         if (instance == null){
             instance = new ImageLoader(HelloApplication.getInstance());
         }
         return instance;
     }
 
-    public void display(String imageUrl, ImageView imageView){
-        display(imageUrl, imageView, DEFAULT_VIEW_ID);
+    public void display(String imageUrl, ImageView imageView, PicCallback callback){
+        display(imageUrl, imageView, DEFAULT_VIEW_ID, callback);
     }
 
-    private void display(String imageUrl, ImageView imageView, int defaultViewId) {
+    private void display(String imageUrl, ImageView imageView, int replaceViewId, PicCallback callback) {
+        if (DEFAULT_VIEW_ID == replaceViewId) {
+            replaceViewId = R.drawable.ic_launcher;
+        }
         if (TextUtils.isEmpty(imageUrl)){
-            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            imageView.setImageResource(defaultViewId);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            imageView.setImageResource(replaceViewId);
         } else {
-            Picasso.with(mContext).load(imageUrl).replaceImage(defaultViewId).into(imageView);
+            Picasso.with(mContext).load(imageUrl).replaceImage(replaceViewId).into(imageView, callback);
         }
 
     }
