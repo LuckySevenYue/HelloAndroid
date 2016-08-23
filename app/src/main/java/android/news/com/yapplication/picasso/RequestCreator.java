@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.news.com.yapplication.net.BaseRequest;
 import android.news.com.yapplication.net.Callback;
 import android.news.com.yapplication.util.FileUtils;
+import android.news.com.yapplication.util.ICallback;
 import android.news.com.yapplication.util.LogCat;
 import android.os.Handler;
 import android.os.Looper;
@@ -25,12 +26,13 @@ public class RequestCreator {
 
     private Bitmap mBitmap;
     private int mReplaceViewId;
-    private Uri mUri;
+    private String mUrl;
     private Handler mHandler;
+    private ImageView view;
 
     //uri 分为 file 和 net。
-    RequestCreator(Uri uri) {
-        this.mUri = uri;
+    RequestCreator(String url) {
+        this.mUrl = url;
         mHandler = new Handler(Looper.getMainLooper());
     }
 
@@ -40,31 +42,15 @@ public class RequestCreator {
     }
 
     public void into(ImageView imageView, PicCallback callback){
+        this.view = imageView;
         requestBitmap();
-        if (mBitmap != null){
-            callback.onSuccess();
-            imageView.setImageBitmap(mBitmap);
-        } else {
-            imageView.setImageResource(mReplaceViewId);
-            callback.onFail();
-        }
     }
 
     private void requestBitmap() {
-        LogCat.e(getClass().getSimpleName(),"mUri.getPath() = "+mUri.getPath());
-        new BaseRequest(mUri.getPath()).doRequest(new Callback() {
+        new BaseRequest(mUrl).doRequest(new Callback() {
             @Override
             public void onSuccess(final Response response) {
-                mHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
                             transformStream(response.body());
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
             }
 
             @Override
@@ -74,12 +60,24 @@ public class RequestCreator {
         });
     }
 
-    private Bitmap transformStream(ResponseBody body) throws IOException {
-        if (body == null){
-            return null;
+    private void transformStream(ResponseBody body){
+        try {
+            final byte[] buf = body.bytes();
+
+            FileUtils.makeFile(buf, new ICallback() {
+                @Override
+                public void doFile(final File file) {
+                    mHandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            view.setImageURI(Uri.fromFile(file));
+                        }
+                    });
+                }
+            });
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        File file = FileUtils.makeFile(body.byteStream());
-        mBitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
-        return mBitmap;
     }
 }

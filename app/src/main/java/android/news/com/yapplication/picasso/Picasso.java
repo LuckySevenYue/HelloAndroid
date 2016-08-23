@@ -29,11 +29,7 @@ public class Picasso {
     }
 
     public RequestCreator load(String path){
-        //download image
-        return this.load(Uri.parse(path));
+        return new RequestCreator(path);
     }
 
-    public RequestCreator load(@Nullable Uri uri) {
-        return new RequestCreator(uri);
-    }
 }
