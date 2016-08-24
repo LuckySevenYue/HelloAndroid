@@ -1,18 +1,15 @@
 package android.news.com.yapplication.base;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
-
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
 /**
  * Created by yy10017 on 2016/8/23.
  * base
  */
 
-public class BaseActivity extends Activity {
+public class BaseActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,5 +24,4 @@ public class BaseActivity extends Activity {
             throw ex;
         }
     }
-
 }

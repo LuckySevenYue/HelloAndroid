@@ -11,9 +11,11 @@ import android.news.com.yapplication.util.LogCat;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.ImageView;
+
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 import com.squareup.okhttp.ResponseBody;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -41,26 +43,27 @@ public class RequestCreator {
         return this;
     }
 
-    public void into(ImageView imageView, PicCallback callback){
+    public void into(ImageView imageView, PicCallback callback) {
         this.view = imageView;
-        requestBitmap();
+        requestBitmap(callback);
     }
 
-    private void requestBitmap() {
+    private void requestBitmap(final PicCallback callback) {
         new BaseRequest(mUrl).doRequest(new Callback() {
             @Override
             public void onSuccess(final Response response) {
-                            transformStream(response.body());
+                callback.onSuccess();
+                transformStream(response.body());
             }
 
             @Override
             public void onFail(RequestBody body) {
-
+                callback.onFail();
             }
         });
     }
 
-    private void transformStream(ResponseBody body){
+    private void transformStream(ResponseBody body) {
         try {
             final byte[] buf = body.bytes();
 
