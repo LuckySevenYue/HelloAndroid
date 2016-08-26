@@ -25,9 +25,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".base.BaseActivity"
+            android:name=".base.BaseActivity" />
+        <activity
+
             android:screenOrientation="portrait"
-            android:theme="@style/All.NoActionBar" />
+            android:theme="@style/All.NoActionBar"
+            android:name=".BitmapActivity" />
     </application>
 
 </manifest>
