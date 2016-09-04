@@ -18,4 +18,27 @@
         <item name="android:windowBackground">@color/bg_main</item>
     </style>
 
+
+    <!--TextView Style-->
+    <style name="tv_prompt_xlarge_style" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">@dimen/text_size_xlarge</item>
+        <item name="android:textColor">@color/main_prompt</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="tv_white_large_style" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:textColor">@color/main_white</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="tv_link_list_style" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">@dimen/text_size_list</item>
+        <item name="android:textColor">@color/main_link</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
 </resources>

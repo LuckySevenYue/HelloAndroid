@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">YApplication</string>
+
+
+    <!--登录-->
+    <string name="login">登录</string>
+    <string name="welcome">欢迎登录XX</string>
+    <string name="account">账号：</string>
+    <string name="password">密码：</string>
+    <string name="input_account">请输入用户账号</string>
+    <string name="input_pwd">请输入密码</string>
+    <string name="register">注册</string>
+    <string name="forget_pwd">忘记密码</string>
+
+
+
+    <!--错误页-->
+    <string name="try_again">再试试</string>
+    <string name="net_exception">您的网络异常，请检查网络后再次尝试。</string>
+    <string name="result_exception">抱歉，数据异常。</string>
 </resources>

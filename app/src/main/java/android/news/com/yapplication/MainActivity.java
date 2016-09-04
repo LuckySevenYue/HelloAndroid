@@ -91,7 +91,7 @@ public class MainActivity extends BaseActivity {
         initView();
         initData();
         mViewPager.setAdapter(mAdapter);
-        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 mIndicator.scroll(position,positionOffset);
