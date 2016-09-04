@@ -53,7 +53,21 @@ public class RequestCreator {
             @Override
             public void onSuccess(final Response response) {
                 callback.onSuccess();
-                transformStream(response.body());
+                if (response.code() == 200){
+                    try {
+                        byte[] data = response.body().bytes();
+                        final Bitmap bitmap = BitmapFactory.decodeByteArray(data,0,data.length);
+                        mHandler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                view.setImageBitmap(bitmap);
+                            }
+                        });
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    transformStream(response.body());
+                }
             }
 
             @Override
