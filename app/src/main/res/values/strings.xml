@@ -18,4 +18,5 @@
     <string name="try_again">再试试</string>
     <string name="net_exception">您的网络异常，请检查网络后再次尝试。</string>
     <string name="result_exception">抱歉，数据异常。</string>
+    <string name="loading">正在加载...</string>
 </resources>

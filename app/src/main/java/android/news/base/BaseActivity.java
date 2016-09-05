@@ -1,5 +1,7 @@
 package android.news.base;
 
+import android.news.net.HttpService;
+import android.news.net.Requester;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
@@ -9,11 +11,14 @@ import android.view.View;
  * base
  */
 
-public class BaseActivity extends FragmentActivity {
+public class BaseActivity extends FragmentActivity implements View.OnClickListener{
+
+    private HttpService mHttpService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mHttpService = new HttpService(this);
     }
 
     @SuppressWarnings("unchecked")
@@ -23,5 +28,14 @@ public class BaseActivity extends FragmentActivity {
         } catch (ClassCastException ex) {
             throw ex;
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    public String sendRequest(Requester obj){
+        return mHttpService.sendRequest(obj);
     }
 }

@@ -1,7 +1,7 @@
 package android.news.picasso;
 
 import android.content.Context;
-import android.news.com.yapplication.R;
+import android.news.R;
 import android.news.base.HelloApplication;
 import android.text.TextUtils;
 import android.widget.ImageView;

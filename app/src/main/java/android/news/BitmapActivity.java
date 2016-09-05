@@ -8,12 +8,10 @@ import android.news.util.Uikit;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
-
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -31,7 +29,7 @@ public class BitmapActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(android.news.com.yapplication.R.layout.activity_main);
+        setContentView(R.layout.activity_main);
         mActivity = this;
         Request req = new Request.Builder()
                 .url(PIC_URL).
@@ -57,17 +55,17 @@ public class BitmapActivity extends BaseActivity {
             }
         });
 
-        ImageView view = getView(android.news.com.yapplication.R.id.iv_show);
+        ImageView view = getView(R.id.iv_show);
 
         ImageLoader.getInstance().display(PIC_URL, view, new PicCallback() {
             @Override
             public void onSuccess() {
-                Uikit.showToast(mActivity,"MainActivity_onSuccess()");
+                Uikit.showToast("MainActivity_onSuccess()");
             }
 
             @Override
             public void onFail() {
-                Uikit.showToast(mActivity,"MainActivity_onFail()");
+                Uikit.showToast("MainActivity_onFail()");
             }
         });
     }

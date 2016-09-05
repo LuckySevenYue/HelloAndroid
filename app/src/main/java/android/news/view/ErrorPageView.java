@@ -1,7 +1,7 @@
 package android.news.view;
 
 import android.content.Context;
-import android.news.com.yapplication.R;
+import android.news.R;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;

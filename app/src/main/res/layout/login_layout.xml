@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@drawable/bg_two" >
 
     <TextView
         style="@style/tv_prompt_xlarge_style"
@@ -36,6 +37,8 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
+            android:maxLines="1"
+            android:maxLength="12"
             android:textColorHint="@color/main_hint"
             android:layout_toLeftOf="@+id/iv_cancel"
             android:background="@null" />
@@ -67,6 +70,8 @@
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
             android:inputType="textPassword"
+            android:maxLines="1"
+            android:maxLength="12"
             android:textColorHint="@color/main_hint"
             android:hint="@string/input_pwd"
             android:layout_toLeftOf="@+id/iv_decode"
@@ -75,6 +80,7 @@
     </RelativeLayout>
 
     <Button
+        android:id="@+id/btn_login"
         style="@style/tv_white_large_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

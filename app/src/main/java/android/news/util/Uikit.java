@@ -1,6 +1,7 @@
 package android.news.util;
 
 import android.content.Context;
+import android.news.base.HelloApplication;
 import android.widget.Toast;
 
 /**
@@ -10,12 +11,12 @@ import android.widget.Toast;
 
 public class Uikit {
 
-    public static void showToast(Context context, String msg){
-        Toast.makeText(null,msg,Toast.LENGTH_SHORT).show();
+    public static void showToast(String msg){
+        Toast.makeText(HelloApplication.getInstance().getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
     }
 
-    public static void showLongToast(Context context, String msg){
-        Toast.makeText(null,msg,Toast.LENGTH_LONG).show();
+    public static void showLongToast(String msg){
+        Toast.makeText(HelloApplication.getInstance().getApplicationContext(), msg, Toast.LENGTH_LONG).show();
     }
 
 }

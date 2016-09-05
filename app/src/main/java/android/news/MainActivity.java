@@ -22,7 +22,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(android.news.com.yapplication.R.layout.activity_main3);
+        setContentView(R.layout.activity_main3);
 
         initView();
         initData();
@@ -46,8 +46,8 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initView() {
-        mIndicator = (ViewPagerIndicator) findViewById(android.news.com.yapplication.R.id.indicator);
-        mViewPager = (ViewPager) findViewById(android.news.com.yapplication.R.id.viewpager);
+        mIndicator = (ViewPagerIndicator) findViewById(R.id.indicator);
+        mViewPager = (ViewPager) findViewById(R.id.viewpager);
     }
 
     private void initData() {
