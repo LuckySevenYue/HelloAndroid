@@ -1,4 +1,4 @@
-package android.news;
+package android.news.test;
 
 /**
  * Created by yy10017 on 2016/8/22.
