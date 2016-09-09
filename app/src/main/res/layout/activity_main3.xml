@@ -4,7 +4,7 @@
     android:background="#ffffffff"
     android:orientation="vertical">
 
-    <android.news.com.yapplication.viewpagers.ViewPagerIndicator
+    <android.news.viewpagers.ViewPagerIndicator
         android:id="@+id/indicator"
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -38,7 +38,7 @@
             android:textColor="@android:color/white"
             android:textSize="16sp" />
 
-    </android.news.com.yapplication.viewpagers.ViewPagerIndicator>
+    </android.news.viewpagers.ViewPagerIndicator>
 
 
     <android.support.v4.view.ViewPager
