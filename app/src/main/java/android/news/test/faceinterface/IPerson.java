@@ -15,7 +15,7 @@ public interface IPerson {
 
     void walk();
 
-    int color(Color color);
+    int color();
 
     String name();
 
