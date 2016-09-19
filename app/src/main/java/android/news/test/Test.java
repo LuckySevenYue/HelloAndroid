@@ -8,7 +8,17 @@ package android.news.test;
 public class Test {
 
     public static void main(String []args){
-        // TODO: 2016/8/22
+
+        test1();
+
+//        test2();
+
+    }
+
+    static void test1(){
+    }
+
+    static void test2(){
         String str = "0  1 2 3 5";
         /**************fun1()**********************/
         String newStr = "";

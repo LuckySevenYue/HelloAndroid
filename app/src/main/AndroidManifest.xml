@@ -16,8 +16,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:name=".LoginActivity" >
+            android:theme="@style/Theme.AppCompat.Light"
+            android:name=".test.FullScreenActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
