@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.graphics.Color;
 import android.news.R;
 import android.news.base.BaseActivity;
+import android.news.util.LogCat;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,7 @@ public class FullScreenActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.full_layout);
+        LogCat.e("packageName", "packageName = " + getPackageName());
         if (Build.VERSION.SDK_INT > 21){
             View decorView = getWindow().getDecorView();
             int option = View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;

@@ -13,7 +13,7 @@ public abstract class PersonAttr implements IPerson {
     }
 
     @Override
-    public int color(Color color) {
+    public int color() {
         return 0;
     }
 
