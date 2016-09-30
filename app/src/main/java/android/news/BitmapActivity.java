@@ -55,7 +55,7 @@ public class BitmapActivity extends BaseActivity {
             }
         });
 
-        ImageView view = getView(R.id.iv_show);
+        ImageView view = getView(R.id.iv_round_show);
 
         ImageLoader.getInstance().display(PIC_URL, view, new PicCallback() {
             @Override
