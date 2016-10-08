@@ -17,7 +17,19 @@ public class LogCat {
         Log.e(tag,msg);
     }
 
-    public static void formatPrintf(String tag, String format, Object... args){
-        Log.e(tag,String.format(format,args));
+    public static void printf(String tag, String format, Object... args){
+        Log.e(tag, String.format(format, args));
+    }
+
+    public static void i(Class clazz, String msg){
+        Log.i(clazz.getSimpleName(), msg);
+    }
+
+    public static void e(Class clazz, String msg){
+        Log.e(clazz.getSimpleName(), msg);
+    }
+
+    public static void printf(Class clazz, String format, Object... args){
+        Log.e(clazz.getSimpleName(), String.format(format, args));
     }
 }

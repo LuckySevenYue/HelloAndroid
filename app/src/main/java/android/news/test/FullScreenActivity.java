@@ -34,7 +34,6 @@ public class FullScreenActivity extends BaseActivity {
 //        View view = new CustomView(this);
 
         setContentView(R.layout.activity_main);
-        final TextView tv = (TextView) findViewById(R.id.tv_hello);
         layout = (RelativeLayout) findViewById(R.id.rl_full);
         LogCat.e("density", "density = " + getResources().getDisplayMetrics().density);
 //        tv.post(new Runnable() {

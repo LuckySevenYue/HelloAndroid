@@ -17,7 +17,7 @@
         <activity
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light"
-            android:name=".test.FullScreenActivity" >
+            android:name=".PopupTestActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
