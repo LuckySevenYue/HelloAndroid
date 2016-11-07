@@ -1,8 +1,8 @@
 package android.news;
 
-import android.graphics.drawable.Drawable;
 import android.news.base.BaseActivity;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +18,7 @@ public class PopupTestActivity extends BaseActivity {
 
     private LayoutInflater inflater;
     private TextView textView;
+    private boolean isShowing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +26,17 @@ public class PopupTestActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         inflater = LayoutInflater.from(this);
         textView = getView(R.id.tv_hello);
+        String text = "abcdefg\nabcdefg\nbbb\nabcdefg";
+        String light = "bbb";
+        SpannableStringBuilder mTipsBuilder = new StringFormatBuilder(text, light)
+                .buildColor(getResources().getColor(R.color.main_green)).getResult();
+        textView.setText(mTipsBuilder);
         textView.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
+        isShowing = !isShowing;
         popView();
     }
 
@@ -37,7 +44,7 @@ public class PopupTestActivity extends BaseActivity {
         View view = inflater.inflate(R.layout.activity_main3, null);
         PopupWindow window = new PopupWindow(view, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         window.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_two));
-        if (window.isShowing()){
+        if (isShowing){
             window.dismiss();
         } else {
             window.showAsDropDown(textView);
